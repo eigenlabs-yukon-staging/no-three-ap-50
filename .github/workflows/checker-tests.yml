@@ -1,0 +1,11 @@
+name: Checker tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  checkers:
+    uses: Layr-Labs/llm-verifier/.github/workflows/test-checkers.yml@939a35dbb233c062ae514bd9abc62d3168eba1fc
+    with:
+      verifier_repository: Layr-Labs/llm-verifier
+      verifier_revision: 939a35dbb233c062ae514bd9abc62d3168eba1fc
+      root_dir: '.'
