@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "title": "No Three in Progression",
+  "claims": [
+    {
+      "statement": "The 15 integers in 1..50 whose base-3 digits contain no 2 form a set with no three-term arithmetic progression.",
+      "score": {
+        "numerator": "15",
+        "denominator": "1"
+      },
+      "evidence": [
+        "baseline.md"
+      ]
+    }
+  ],
+  "experiments": []
+}

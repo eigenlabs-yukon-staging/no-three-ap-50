@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "no-three-ap-50",
+  "rules_path": "rules.md",
+  "provider": {
+    "model": "gpt-6-luna"
+  },
+  "policies": {
+    "scoring": {},
+    "validity": {}
+  },
+  "supported_policies": {
+    "scoring": [
+      {
+        "selector": {},
+        "instructions": "Use the configured score source."
+      }
+    ],
+    "validity": [
+      {
+        "selector": {},
+        "instructions": "Apply rules.md to the complete claim and proof."
+      }
+    ]
+  },
+  "review_standard": "no-three-ap-50-review-v1",
+  "objectives": [
+    {
+      "name": "set_size",
+      "direction": "+",
+      "unit": "integers",
+      "semantics": "Rank by the number of distinct integers in a valid set.",
+      "score_source": {
+        "claim": 0
+      },
+      "score_minimum": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "score_maximum": {
+        "numerator": "50",
+        "denominator": "1"
+      }
+    }
+  ],
+  "allow_unscored": false,
+  "limits": {
+    "max_followups": 0
+  }
+}
