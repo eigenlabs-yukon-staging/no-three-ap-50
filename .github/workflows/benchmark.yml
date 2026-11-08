@@ -1,0 +1,31 @@
+name: Benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      yukon_accepted_results:
+        description: Yukon automatic accepted-result context
+        required: false
+        type: string
+        default: ''
+      yukon_evaluation:
+        type: string
+        required: false
+        default: ''
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  verify:
+    uses: Layr-Labs/llm-verifier/.github/workflows/verify.yml@939a35dbb233c062ae514bd9abc62d3168eba1fc
+    with:
+      verifier_repository: Layr-Labs/llm-verifier
+      verifier_revision: 939a35dbb233c062ae514bd9abc62d3168eba1fc
+      root_dir: '.'
+      config_path: verifier.json
+      submission_path: submission
+      score_path: .yukon/score.json
+      yukon_accepted_results: ${{ inputs.yukon_accepted_results }}
+      yukon_evaluation: ${{ inputs.yukon_evaluation }}
+      environment: scoring
+    secrets:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
